@@ -12,7 +12,7 @@ module "vpc_module" {
 }
 
 module "ec2mod" {
-  source        = "../modules/compute/ec2"
+  source        = "git::https://github.com/ravikirandeekonda/tfcode.git//modules/compute/ec2"
   instance_type = var.instance_type
   ami           = var.ami
   key_name      = var.key_name
@@ -22,7 +22,7 @@ module "ec2mod" {
 }
 
 module "eks_module" {
-  source = "../modules/compute/eks"
+  source = "git::https://github.com/ravikirandeekonda/tfcode.git//modules/compute/eks"
   cluster_name = var.cluster_name
   eks_role_arn = var.eks_role_arn
   subnet_ids = [module.vpc_module.public_subnet_ids[0], module.vpc_module.public_subnet_ids[1]]
@@ -32,8 +32,7 @@ module "eks_module" {
 }
 
 # This module creates an S3 bucket with the specified configuration.
-/*
-module "s3module" {
+/*module "s3module" {
   source = "../modules/storage/s3"
   bucket_name = "cloudautomate-bucket"
   acl = "private"
@@ -42,5 +41,5 @@ module "s3module" {
     Name = "cloudautomate-bucket"
   }
   
-}
-*/
+}*/
+
