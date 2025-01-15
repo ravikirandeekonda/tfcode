@@ -1,3 +1,9 @@
+resource "random_string" "random" {
+  length           = 16
+  special          = true
+  override_special = "/@£$"
+}
+
 resource "aws_s3_bucket" "backend_bucket" {
   bucket = "backend-bucket-${random_string.suffix.result}"
   tags = {

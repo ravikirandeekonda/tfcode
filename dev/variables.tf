@@ -53,8 +53,3 @@ variable "kms_key_arn" {
   default     = "arn:aws:kms:ap-south-1:724772072892:key/76ea72cc-eb60-4864-a10e-7a1c9e45d663"
 }
 
-resource "random_string" "random" {
-  length           = 16
-  special          = true
-  override_special = "/@£$"
-}
