@@ -10,18 +10,6 @@ sudo apt install docker.io -y
 sudo apt install apache2 -y
 sudo systemctl start apache2
 sudo systemctl enable apache2
-sudo cat <<EOF > /var/www/html/index.html
-<!DOCTYPE html>
-<html>
-<head>
-<title>Compute Service</title>
-</head>
-<body>
-<h1>Compute Service</h1>
-<p>This is the compute service.</p>
-</body>
-</html>
-EOF
 sudo systemctl restart apache2
 sudo systemctl enable docker
 

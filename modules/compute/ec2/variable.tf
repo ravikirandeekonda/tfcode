@@ -18,8 +18,8 @@ variable "key_name" {
 
 variable "subnet_id" {
   description = "The subnet ID to use for the EC2 instance"
-  type        = string
-  default     = "subnet-0b3b3b3b3b3b3b3b3"
+  type        = list(string)
+  default     = ["subnet-0b3b3b3b3b3b3b3b3", "subnet-0b3b3b3b3b3b3b3b3"]
 }
 
 variable "name" {

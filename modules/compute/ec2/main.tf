@@ -1,8 +1,9 @@
-resource "aws_instance" "app_instance" {
+resource "aws_instance" "app_instance_1a" {
+  count = length(var.subnet_id)
   ami                  = var.ami
   instance_type        = var.instance_type
   key_name             = var.key_name
-  subnet_id            = var.subnet_id
+  subnet_id            = element(var.subnet_id, count.index)
   iam_instance_profile = var.iam_instance_profile
   user_data            = file("D:/DATA/Cloud4c/My_Projects/AWS/AWS-BUILD/2025/Trainings/tfcode/modules/compute/ec2/userdata.sh")
   disable_api_termination = true
